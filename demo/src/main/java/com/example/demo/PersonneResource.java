@@ -54,7 +54,7 @@ public class PersonneResource {
 	public List<Personne> getAllPersonne() {
 		List<Personne> personnes = new ArrayList<>();
 		personneRepository.findAll().forEach(personnes::add);
-		return personnes; //La liste des personnes
+		return personnes; //La liste des personnes.
 	}
 	
 	
