@@ -25,11 +25,12 @@ public class Personne{
 	   private String date_emprunt;
 	   private String ville;
 	   
-	   @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	   @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	   private List<Livre> livres;
-	   @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	   @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	   private List<Bibliotheque> biblios;
 	  
+	   
 	   
 	public Long getId() {
 		return id;

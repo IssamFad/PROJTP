@@ -23,7 +23,8 @@ public class LivreResource {
         livreRepository.findAll().forEach(livres::add);
         return livres;
     }
-
+    
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -31,15 +32,6 @@ public class LivreResource {
         return livreRepository.save(l);
     }
     
-    /*
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Livre creeerLivre(LivreInput li) {
-    	Livre l = new Livre(li.getIdLivre());
-        return livreRepository.save(l);
-    }
-    */
     
 
     @DELETE

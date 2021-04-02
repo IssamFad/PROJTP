@@ -93,14 +93,7 @@ $(document).ready(function() {
 		return listPers.filter(p => p.nom.includes(searchFilter)||p.prenom.includes(searchFilter)||p.nomBiblio.includes(searchFilter)||p.titre.includes(searchFilter));
 	}
 	
-		
-	/* Au clic sur un élement de la liste on change son état */
-	/*function gestionEvenementsLiv(idLivre) {
-	    $(idLivre).toggleClass('done');
-	    let current =  listLiv.find(livre => livre.id == $(idLivre).attr('id'));
-	    current.completed = !current.completed;
-  		
-	}*/
+
 	
 
 	/*Au clique sur la croix devant l'affichage d'une personne, on supprime celle-ci de la base de données */
@@ -173,14 +166,14 @@ $(document).ready(function() {
 		$.ajax({/* envoie de la requete post et les données en JSON */
 		    type: "POST",
 		    url: "http://localhost:8080/api/personnes",
-		    data: JSON.stringify({ "prenom": prenom,"nom": nom, "age" : age,"idLivre" : idLivre,"ville": ville,"idBiblio" : idBiblio,"date": date }),
+		    data: JSON.stringify({ "prenom": prenom,"nom": nom, "age" : age,"idLivre" : idLivre,"ville": ville,"idBiblio" : idBiblio, "date": date }),
 		    contentType: "application/json; charset=utf-8",
 		    dataType: "json",
 		    success: function(data){
 		        console.log(data);
 				appendToListPersonne(data);
-				addLivreToPerson(data.id, idLivre);
-				/*addBiblioToPerson(data.id, idBiblio)*/
+				//addLivreToPerson(data.id, idLivre);
+				//addBiblioToPerson(data.id, idBiblio)
 				
 		    }
 		});
@@ -295,7 +288,7 @@ $(document).ready(function() {
 	}
 
 	/* Ajout un livre à une personne existante*/
-	function addLivreToPerson(idPersonne, idLivre) {
+	/*function addLivreToPerson(idPersonne, idLivre) {
 	    $.ajax({
     			type: "POST",
     			url: "http://localhost:8080/api/personnes/"+idPersonne+"/livres",
@@ -309,7 +302,7 @@ $(document).ready(function() {
     	});
 	}
 	
-	/*
+	
 	function addBiblioToPerson(idPersonne, idBiblio){
 		$.ajax({
     			type: "POST",
